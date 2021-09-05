@@ -1,0 +1,48 @@
+*
+!.gitignore
+
+# usr/src dir is for kernel config
+!usr/
+!usr/src/
+!usr/src/.config
+
+!etc/
+
+!etc/portage/
+!etc/portage/make.conf
+
+# etc/skel (skeleton) is the base layout of every user's home directory
+!etc/skel/
+
+!etc/skel/.zshrc
+!etc/skel/.aliasrc
+!etc/skel/.funcsrc
+
+!etc/skel/.scripts/
+!etc/skel/.scripts/*
+
+!etc/skel/.config/
+etc/skel/.config/*
+
+!etc/skel/.config/alacritty/
+!etc/skel/.config/alacritty/**/*
+
+!etc/skel/.config/nvim/
+!etc/skel/.config/nvim/**/*
+
+etc/skel/.config/nvim/autoload/
+etc/skel/.config/nvim/autoload/*
+etc/skel/.config/nvim/plugged/
+etc/skel/.config/nvim/plugged/*
+
+# Grub2 conf
+!etc/default/
+!etc/default/grub
+
+!etc/grub.d/
+!etc/grub.d/40_custom
+
+# Suckless dwm config files
+!etc/skel/.config/suckless/
+!etc/skel/.config/suckless/*/
+!etc/skel/.config/suckless/**/config.def.h

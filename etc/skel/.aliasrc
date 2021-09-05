@@ -1,0 +1,13 @@
+alias \
+  ea="nvim ~/.aliasrc" \
+  es="nvim ~/.zshrc" \
+  ef="nvim ~/.funcsrc" \
+  godev="cd ~/dev" \
+  upgrade="sudo pacman -Syu" \
+  lspkgs="pacman -Q" \
+  myip="curl ipinfo.io/ip" \
+  shutdown="sudo openrc-shutdown -p now" \
+  reboot="sudo openrc-shutdown -r now" \
+  back="cd -" \
+  home="~ && clear" \
+  ds="du -hc --max-depth=1 ."
