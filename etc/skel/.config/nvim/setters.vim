@@ -1,28 +1,44 @@
 syntax on
 
-hi clear SignColumn
-"hi Error guifg=Red guibg=White
-hi CocErrorFloat guifg=12 guibg=15
-hi CocWarningFloat guifg=14 guibg=15
-hi CocHintFloat guifg=13 guibg=15
-hi CocInfoFloat guifg=9 guibg=15
-hi clear cursorline
-
-set number
+set exrc
+set guicursor=
+set guifont=Hack\ Nerd\ Font:style=regular
 set relativenumber
-set encoding=UTF-8
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono\ 11
+set nohlsearch
+set hidden
+set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set nowrap
 set expandtab
 set smartindent
+set nu
+set nowrap
 set smartcase
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
-set incsearch
 set undofile
-set showtabline=2
-set completeopt=longest,menuone
+set incsearch
+set termguicolors
+set scrolloff=8
+set noshowmode
+set completeopt=menuone,noinsert,noselect
+set signcolumn=yes
+set updatetime=100
 
+" Give messages more space
+set cmdheight=2
+
+hi ColorColumn ctermbg=0 guibg=lightgrey
+
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()

@@ -100,7 +100,7 @@ window:
 
 # Font configuration
 font:
-  # Normal (roman) font face
+  # Normal (roman) font family
   normal:
     # Font family
     #
@@ -147,7 +147,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -785,6 +785,7 @@ colors:
     magenta: '#b16286'
     cyan:    '#8abf8c'
     white:   '#a89984'
+    cream:   '#b59186'
 
   # Bright colors
   bright:
@@ -796,3 +797,4 @@ colors:
     magenta: '#d3869b'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
+    cream:   '#b59186'

@@ -1,60 +1,51 @@
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : ""
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : ""
+let mapleader = ','
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Moving windows
+nnoremap <leader>h :wincmd h<cr>
+nnoremap <leader>j :wincmd j<cr>
+nnoremap <leader>k :wincmd k<cr>
+nnoremap <leader>l :wincmd l<cr>
+
+nnoremap <leader>= :vertical res +5<CR>:call feedkeys('<leader>')<CR>
+nnoremap <leader>- :vertical res -5<CR>:call feedkeys('<leader>')<CR>
+
+" Visual mode moving lines
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+nnoremap <c-j> :m .+1<cr>==
+nnoremap <c-k> :m .-2<cr>==
+
+" Behave vim
 nnoremap Y y$
 
-" Keep it centered
+" Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
-" undo break points
-inoremap ( (<c-g>u
-inoremap { {<c-g>u
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ; ;<c-g>u
 inoremap [ [<c-g>u
 inoremap ] ]<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap , ,<c-g>u
-
-" moving lines
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-nnoremap <leader>k <esc>:m .-2<CR>==
-nnoremap <leader>j <esc>:m .+1<CR>==
-
-let NERDTreeMinimalUI=1
-let mapleader = ","
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+inoremap { {<c-g>u
+inoremap } }<c-g>u
+inoremap -> -><c-g>u
 
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-noremap <leader>e :NERDTreeToggle<CR>
-
-" move among buffers with CTRL
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-h> :tabp<CR>
-nnoremap <leader>tnew :tabnew 
-nnoremap <leader>tg :tabn 
-nnoremap <leader>tm :tabm 
-
-" open new tab in vsplit mode
-nnoremap <leader>vs :vsplit 
-
-" quit terminal
-tnoremap <C-c> <C-\><C-n><CR>
-tnoremap <ESC> <C-\><C-n>:q!<CR>
-
-nnoremap <leader>.= :res +5<CR>
-nnoremap <leader>.- :res -5<CR>
-" prevent multiple leader presses (not needed)
-nnoremap <leader>= :vertical res +5<CR>:call feedkeys('<leader>')<CR>
-nnoremap <leader>- :vertical res -5<CR>:call feedkeys('<leader>')<CR>
-
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-
-inoremap <silent><expr> <c-space> coc#refresh()
+" Suggestion box controls
+inoremap <expr> <tab> pumvisible() ? '\<c-n>' : '\<tab>'
+inoremap <expr> <s-tab> pumvisible() ? '\<c-p>' : '\<s-tab>'
+inoremap <expr> <cr> pumvisible() ? '\<c-y>' : '\<c-g>u\<cr>'
